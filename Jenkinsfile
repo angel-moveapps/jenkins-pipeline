@@ -8,10 +8,9 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Listing workspace') {
       steps {
-        echo 'building'
-        sh 'npm build'
+        sh 'ls'
       }
     }
 
