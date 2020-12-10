@@ -1,26 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      parallel {
-        stage('Build') {
-          steps {
-            echo 'this is the build'
-          }
-        }
-
-        stage('Test') {
-          steps {
-            echo 'Testing the app'
-          }
-        }
-
+    stage('Checkout') {
+      steps {
+        echo 'checkout'
+        git(url: 'https://github.com/angel-moveapps/dummy-proyect.git', branch: 'master', credentialsId: 'github')
       }
     }
 
-    stage('Deploy') {
+    stage('Build') {
       steps {
-        echo 'Deploying the app into wonderland'
+        echo 'building'
+        sh 'npm build'
       }
     }
 
