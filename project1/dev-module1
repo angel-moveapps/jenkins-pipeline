@@ -1,5 +1,11 @@
 pipeline {
   agent any
+  parameters {
+      gitParameter name: 'BRANCH_TAG', 
+                     type: 'PT_BRANCH_TAG',
+                     defaultValue: 'master',
+ 					 useRepository: '.*dummy-proyect.git'
+  }
   stages {
     stage('Checkout3') {
       steps {
