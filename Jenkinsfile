@@ -14,5 +14,12 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        sh '''cd my-app
+npm build'''
+      }
+    }
+
   }
 }
